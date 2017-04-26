@@ -34,10 +34,10 @@ public class MenuCustomerActivity extends AppCompatActivity implements View.OnCl
         if (view == btnPeta) {
             startActivity(new Intent(MenuCustomerActivity.this, MapsActivity.class));
         }
-        /*if (view == btnInformasiTempatLaundry) {
-            startActivity(new Intent(MenuCustomerActivity.this, LaundryListActivity.class));
+        if (view == btnInformasiTempatLaundry) {
+            startActivity(new Intent(MenuCustomerActivity.this, OrderListActivity.class));
         }
-        if (view == btnPesanKeluhan) {
+        /*if (view == btnPesanKeluhan) {
             startActivity(new Intent(MenuCustomerActivity.this, PesanKeluhanActivity.class));
         }*/
 

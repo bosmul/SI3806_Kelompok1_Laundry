@@ -25,4 +25,14 @@
     <string name="action_settings">Settings</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Android Tutorials Hub</string>
+    <string-array name="tipe_laundry">
+        <item>Normal</item>
+        <item>1 hari jadi</item>
+    </string-array>
+    <array name="status_laundry">
+        <item name="dijemput">Dijemput</item>
+        <item name="diproses">Diproses</item>
+        <item name="sudah jadi">Sudah Jadi</item>
+        <item name="diantar">Diantar</item>
+    </array>
 </resources>
