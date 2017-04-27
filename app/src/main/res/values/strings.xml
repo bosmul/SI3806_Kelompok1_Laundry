@@ -34,5 +34,6 @@
         <item name="diproses">Diproses</item>
         <item name="sudah jadi">Sudah Jadi</item>
         <item name="diantar">Diantar</item>
+        <item name="selesai">Selesai</item>
     </array>
 </resources>

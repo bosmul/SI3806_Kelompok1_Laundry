@@ -7,8 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/gelo">
-    tools:context="com.rpl.kelompok1.gelolaundry.Activities.MenuCustomerActivity">
-
+    tools:context="com.rpl.kelompok1.gelolaundry.Activities.MenuLaundryActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,16 +17,30 @@
         android:textSize="30sp"
         android:padding="20dp"
         android:textColor="@color/Judul"
-        android:layout_marginTop="38dp"
+        android:id="@+id/textViewJudul"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/btnInformasiTempatLaundry" />
+        android:layout_alignStart="@+id/btnPeta"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Update Profile"
+        android:textSize="30sp"
+        android:padding="20dp"
+        android:textColor="@color/Judul"
+        android:id="@+id/textViewProfile"
+        android:onClick="onClick"
+
+        android:layout_below="@+id/textViewJudul"
+        android:layout_alignStart="@+id/btnLihatOrder"/>
 
     <Button
-        android:id="@+id/btnPromo"
+        android:id="@+id/btnSignOut"
         style="@style/btnStyleOrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Promo"
+        android:text="Sign Out"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
 
@@ -36,14 +49,12 @@
         android:layout_alignStart="@+id/btnPesanKeluhan"
         android:layout_marginBottom="42dp" />
 
-
-
     <Button
         android:id="@+id/btnPesanKeluhan"
         style="@style/btnStyleOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pesan Keluhan"
+        android:text="Lihat Keluhan"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp"
 
@@ -52,16 +63,16 @@
         android:layout_alignParentBottom="true" />
 
     <Button
-        android:id="@+id/btnInformasiTempatLaundry"
+        android:id="@+id/btnLihatOrder"
         style="@style/btnStyleOrange"
         android:layout_width="333dp"
         android:layout_height="59dp"
-        android:text="Informasi Tempat Laundry"
+        android:text="Order"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
 
         android:onClick="onClick"
-        android:layout_above="@+id/btnPromo"
+        android:layout_above="@+id/btnSignOut"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="36dp" />
 
@@ -75,6 +86,7 @@
         android:layout_marginLeft="60dp"
 
         android:onClick="onClick"
-        android:layout_above="@+id/btnInformasiTempatLaundry"
+        android:layout_above="@+id/btnLihatOrder"
         android:layout_marginBottom="33dp" />
+
 </RelativeLayout>

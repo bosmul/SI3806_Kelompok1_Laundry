@@ -1,9 +1,18 @@
 package com.rpl.kelompok1.gelolaundry.activities;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,7 +37,7 @@ public class OrderListActivity extends AppCompatActivity {
     private OrderAdapter mOrderAdapter;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
-    Query query;
+    Query query, query2;
     FirebaseUser user;
 
     @Override
@@ -59,6 +68,21 @@ public class OrderListActivity extends AppCompatActivity {
 
             }
         });
+
+        query2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                    appleSnapshot.getRef().removeValue();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void initViews() {
@@ -73,8 +97,6 @@ public class OrderListActivity extends AppCompatActivity {
         textViewName.setText(emailFromIntent);
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,25 +109,65 @@ public class OrderListActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("order");
         user = firebaseAuth.getCurrentUser();
         query =  mDatabase.orderByChild("idLaundry").equalTo(user.getUid());
+        query2 = mDatabase.orderByChild("status").equalTo("Selesai");
 
-        /*listViewOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewOrder.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //getting the selected artist
-                Order order = listOrder.get(i);
-
-                //creating an intent
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-
-                //putting artist name and id to intent
-                intent.putExtra(ARTIST_ID, artist.getArtistId());
-                intent.putExtra(ARTIST_NAME, artist.getArtistName());
-
-                //starting the activity with intent
-                startActivity(intent);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Order order=listOrder.get(i);
+                showUpdateDialog(order.getIdOrder(), order.getIdLaundry(), order.getIdUser(),
+                        order.getNamaUser(), order.getNamaLaundry(), order.getAlamatLaundry(), order.getAlamatUser(), order.getTipe());
+                return true;
             }
-        });*/
+        });
+    }
+
+    private void showUpdateDialog(final String idOrder, final String idLaundry, final String idUser, final String namaUser,
+                                        final String namaLaundry, final String alamatLaundry, final String alamatUser,
+                                        final String tipe) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.update_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextBerat = (EditText) dialogView.findViewById(R.id.editTextBerat);
+        final EditText editTextHarga = (EditText) dialogView.findViewById(R.id.editTextHarga);
+        final EditText editTextParfurm = (EditText) dialogView.findViewById(R.id.editTextParfurm);
+
+        final Spinner spinnerStatus = (Spinner) dialogView.findViewById(R.id.spinnerStatus);
+        final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateOrder);
+
+        dialogBuilder.setTitle(idOrder);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
 
 
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String berat = editTextBerat.getText().toString().trim();
+                String harga = editTextHarga.getText().toString().trim();
+                String parfurm = editTextParfurm.getText().toString().trim();
+                String status = spinnerStatus.getSelectedItem().toString();
+                if (!TextUtils.isEmpty(berat)) {
+                    updateOrder(idOrder, idLaundry, idUser, namaUser, namaLaundry, alamatLaundry, alamatUser, tipe, berat, harga, status, parfurm);
+                    b.dismiss();
+                }
+            }
+        });
+    }
+
+    private boolean updateOrder(String idOrder, String idLaundry, String idUser, String namaUser, String namaLaundry,
+                                String alamatLaundry, String alamatUser, String tipe, String berat,
+                                String harga, String status, String parfurm) {
+        //getting the specified artist reference
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("order").child(idOrder);
+
+        //updating artist
+        Order order = new Order(idOrder, idLaundry, idUser, namaUser, namaLaundry, alamatLaundry, alamatUser, tipe, berat, harga, status, parfurm);
+        dR.setValue(order);
+        Toast.makeText(getApplicationContext(), "Order Updated", Toast.LENGTH_LONG).show();
+        return true;
     }
 }

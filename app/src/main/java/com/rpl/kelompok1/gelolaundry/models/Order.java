@@ -4,13 +4,16 @@ package com.rpl.kelompok1.gelolaundry.models;
  * Created by Lenovo on 25/04/2017.
  */
 
+
 public class Order {
-    public String idOrder, idLaundry, idUser, namaUser, namaLaundry, alamatLaundry, alamatUser, tipe, harga, status;
+    public String idOrder, idLaundry, idUser, namaUser, namaLaundry, alamatLaundry, alamatUser, tipe, berat, harga, status, parfurm;
 
     public Order() {
     }
 
-    public Order(String idOrder, String idLaundry, String idUser, String namaUser, String namaLaundry, String alamatLaundry, String alamatUser, String tipe, String harga, String status) {
+    public Order(String idOrder, String idLaundry, String idUser, String namaUser, String namaLaundry,
+                 String alamatLaundry, String alamatUser, String tipe, String berat, String harga, String status,
+                 String parfurm) {
         this.idOrder = idOrder;
         this.idLaundry = idLaundry;
         this.idUser = idUser;
@@ -19,8 +22,10 @@ public class Order {
         this.alamatLaundry = alamatLaundry;
         this.alamatUser = alamatUser;
         this.tipe = tipe;
+        this.berat = berat;
         this.harga = harga;
         this.status = status;
+        this.parfurm = parfurm;
     }
 
     public String getIdOrder() {
@@ -87,6 +92,14 @@ public class Order {
         this.tipe = tipe;
     }
 
+    public String getBerat() {
+        return berat;
+    }
+
+    public void setBerat(String berat) {
+        this.berat = berat;
+    }
+
     public String getHarga() {
         return harga;
     }
@@ -102,4 +115,13 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getParfurm() {
+        return parfurm;
+    }
+
+    public void setParfurm(String parfurm) {
+        this.parfurm = parfurm;
+    }
+
 }
