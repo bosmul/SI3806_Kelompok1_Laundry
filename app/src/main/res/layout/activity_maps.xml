@@ -15,11 +15,13 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Masukkan alamat"/>
+
         <Button
             android:id="@+id/searchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search"/>
+            android:background="@color/colorAccent"
+            android:text="Search" />
     </LinearLayout>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
