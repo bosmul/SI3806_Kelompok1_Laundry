@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:text="Login Customer"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>
+        android:text="Laundry login"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

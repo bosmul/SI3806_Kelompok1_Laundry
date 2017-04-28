@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gelomenu"
+    android:background="@drawable/latar"
     tools:context="com.rpl.kelompok1.gelolaundry.activities.LihatKeluhanActivity">
 
     <TextView
@@ -62,15 +62,16 @@
             android:hint="Tulis Feedback"
             android:textColorHint="@color/white"
             android:layout_margin="10dp"/>
+
         <Button
             android:id="@+id/btnKirim"
             style="@style/btnStyleOrange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"
             android:layout_gravity="center"
-            android:background="@color/wallet_holo_blue_light"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent"
+            android:text="Submit" />
     </LinearLayout>
 </ScrollView>
 

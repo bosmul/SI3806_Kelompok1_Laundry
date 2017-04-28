@@ -24,6 +24,7 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_menu_laundry);
+
         btnSignOut = (Button) findViewById(R.id.btnSignOut);
         btnPeta = (Button) findViewById(R.id.btnPeta);
         btnLihatOrder=(Button) findViewById(R.id.btnLihatOrder);
@@ -33,7 +34,10 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
 
     public void onClick(View view) {
         if (view == btnSignOut) {
+            finish();
             firebaseAuth.signOut();
+            startActivity(new Intent(MenuLaundryActivity.this, LoginActivity.class) );
+
         }
         if (view == btnPeta) {
             startActivity(new Intent(MenuLaundryActivity.this, MapsActivity.class));
