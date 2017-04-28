@@ -37,6 +37,7 @@ public class LaundryListActivity extends AppCompatActivity {
     private LaundryAdapter mLaundryAdapter;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
+    String nama, alamat, telepon;
 
     FirebaseUser user;
     Query query;
@@ -44,7 +45,7 @@ public class LaundryListActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -57,6 +58,14 @@ public class LaundryListActivity extends AppCompatActivity {
                     Laundry laundry = postSnapshot.getValue(Laundry.class);
                     //adding artist to the list
                     listLaundry.add(laundry);
+
+                    nama = laundry.getName();
+                    alamat = laundry.getAlamat();
+                    telepon = laundry.getTelepon();
+
+
+
+
                 }
                 //creating adapter
                 mLaundryAdapter = new LaundryAdapter(LaundryListActivity.this, listLaundry);
@@ -130,13 +139,15 @@ public class LaundryListActivity extends AppCompatActivity {
         final EditText editTextTelepon = (EditText) dialogView.findViewById(R.id.editTextTelepon);
         final EditText editTextAlamat = (EditText) dialogView.findViewById(R.id.editTextAlamat);
 
+        editTextAlamat.setText(alamat);
+        editTextNama.setText(nama);
+        editTextTelepon.setText(telepon);
 
         final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdate);
 
         dialogBuilder.setTitle(id);
         final AlertDialog b = dialogBuilder.create();
         b.show();
-
 
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
