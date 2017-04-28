@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
 
             //and open profile activity
-            startActivity(new Intent(getApplicationContext(), MenuCustomerActivity.class));
+            startActivity(new Intent(getApplicationContext(), MenuLaundryActivity.class));
         }*/
     }
 
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //start the profile activity
                             emptyInputEditText();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), MenuCustomerActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MenuLaundryActivity.class));
                         }
                     }
                 });

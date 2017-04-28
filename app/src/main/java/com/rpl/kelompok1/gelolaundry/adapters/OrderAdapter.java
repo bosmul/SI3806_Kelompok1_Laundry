@@ -25,6 +25,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
     public AppCompatTextView textViewHarga;
     public AppCompatTextView textViewStatus;
     public AppCompatTextView textViewNama;
+    public AppCompatTextView textViewBerat;
 
 
 
@@ -45,6 +46,8 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         textViewHarga = (AppCompatTextView) view.findViewById(R.id.textViewHarga);
         textViewStatus = (AppCompatTextView) view.findViewById(R.id.textViewStatus);
         textViewNama = (AppCompatTextView) view.findViewById(R.id.textViewNama);
+        textViewBerat = (AppCompatTextView) view.findViewById(R.id.textViewBerat);
+
 
         //Laundry laundry = listLaundry.get(position);
         textViewOrder.setText(listOrder.get(position).getIdOrder());
@@ -53,7 +56,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         textViewHarga.setText(listOrder.get(position).getHarga());
         textViewStatus.setText(listOrder.get(position).getStatus());
         textViewNama.setText(listOrder.get(position).getNamaLaundry());
-
+        textViewBerat.setText(listOrder.get(position).getBerat());
 
         return view;
     }

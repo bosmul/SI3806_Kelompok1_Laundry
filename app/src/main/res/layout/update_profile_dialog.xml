@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/latar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
 
     <EditText
-        android:id="@+id/editTextBerat"
+        android:id="@+id/editTextNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Berat" />
+        android:hint="Enter Name" />
     <EditText
-        android:id="@+id/editTextHarga"
+        android:id="@+id/editTextTelepon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Price" />
+        android:hint="Enter Telepon"
+        android:inputType="number"/>
     <EditText
-        android:id="@+id/editTextParfurm"
+        android:id="@+id/editTextAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Parfurm" />
+        android:hint="Enter Alamat"
+        android:inputType="text"/>
 
-    <Spinner
-        android:id="@+id/spinnerStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/status_laundry"></Spinner>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,11 +31,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonUpdateOrder"
+            android:id="@+id/buttonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
             android:text="Update" />
 
 
