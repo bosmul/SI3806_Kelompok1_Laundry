@@ -34,9 +34,8 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
 
     public void onClick(View view) {
         if (view == btnSignOut) {
-            finish();
-            firebaseAuth.signOut();
-            startActivity(new Intent(MenuLaundryActivity.this, LoginActivity.class) );
+            startActivity(new Intent(MenuLaundryActivity.this, LoginActivity.class));
+
 
         }
         if (view == btnPeta) {

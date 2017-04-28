@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -122,6 +123,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             emptyInputEditText();
                             finish();
                             startActivity(new Intent(getApplicationContext(), MenuLaundryActivity.class));
+                        }else{
+                            Toast.makeText(LoginActivity.this,"Login Error", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

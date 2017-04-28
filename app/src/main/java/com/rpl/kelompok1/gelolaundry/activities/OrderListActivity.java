@@ -39,6 +39,7 @@ public class OrderListActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     Query query, query2;
     FirebaseUser user;
+    String berat, harga, parfurm, status;
 
     @Override
     protected void onStart() {
@@ -56,6 +57,11 @@ public class OrderListActivity extends AppCompatActivity {
                     Order order = postSnapshot.getValue(Order.class);
                     //adding artist to the list
                     listOrder.add(order);
+
+                    berat = order.getBerat();
+                    harga = order.getHarga();
+                    parfurm = order.getParfurm();
+                    status = order.getStatus();
                 }
                 //creating adapter
                 mOrderAdapter = new OrderAdapter(OrderListActivity.this, listOrder);
@@ -134,6 +140,10 @@ public class OrderListActivity extends AppCompatActivity {
         final EditText editTextBerat = (EditText) dialogView.findViewById(R.id.editTextBerat);
         final EditText editTextHarga = (EditText) dialogView.findViewById(R.id.editTextHarga);
         final EditText editTextParfurm = (EditText) dialogView.findViewById(R.id.editTextParfurm);
+
+        editTextBerat.setText(berat);
+        editTextHarga.setText(harga);
+        editTextParfurm.setText(parfurm);
 
         final Spinner spinnerStatus = (Spinner) dialogView.findViewById(R.id.spinnerStatus);
         final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateOrder);
