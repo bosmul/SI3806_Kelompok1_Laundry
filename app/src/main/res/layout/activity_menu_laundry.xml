@@ -7,74 +7,93 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/latar">
-    tools:context="com.rpl.kelompok1.gelolaundry.Activities.MenuCustomerActivity">
+    tools:context="com.rpl.kelompok1.gelolaundry.Activities.MenuLaundryActivity">
 
+    <TextView
+        android:id="@+id/textViewJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textViewProfile"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="Menu Laundry "
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Laundry Menu  "
+        android:text="Update Profile"
         android:textSize="30sp"
         android:padding="20dp"
         android:textColor="@color/Judul"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/btnInformasiTempatLaundry"
-        android:layout_marginTop="10dp" />
+        android:id="@+id/textViewProfile"
+        android:onClick="onClick"
+
+        android:layout_below="@+id/textViewJudul"
+        android:layout_alignStart="@+id/btnLihatOrder"/>
 
     <Button
-        android:id="@+id/btnPromo"
+        android:id="@+id/btnSignOut"
         style="@style/btnStyleOrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Promo"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-
-        android:onClick="onClick"
         android:layout_above="@+id/btnPesanKeluhan"
         android:layout_alignStart="@+id/btnPesanKeluhan"
-        android:layout_marginBottom="42dp" />
+        android:layout_marginBottom="42dp"
 
-
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/colorAccent"
+        android:onClick="onClick"
+        android:text="Sign Out" />
 
     <Button
         android:id="@+id/btnPesanKeluhan"
         style="@style/btnStyleOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pesan Keluhan"
-        android:layout_marginRight="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
         android:layout_marginLeft="100dp"
 
+        android:layout_marginRight="100dp"
+        android:background="@color/colorAccent"
         android:onClick="onClick"
-        android:layout_marginBottom="32dp"
-        android:layout_alignParentBottom="true" />
+        android:text="Lihat Keluhan" />
 
     <Button
-        android:id="@+id/btnInformasiTempatLaundry"
+        android:id="@+id/btnLihatOrder"
         style="@style/btnStyleOrange"
         android:layout_width="333dp"
         android:layout_height="59dp"
-        android:text="Informasi Tempat Laundry"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
-
-        android:onClick="onClick"
-        android:layout_above="@+id/btnPromo"
+        android:layout_above="@+id/btnSignOut"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp" />
+        android:layout_marginBottom="36dp"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@color/colorAccent"
+        android:onClick="onClick"
+        android:text="Order" />
 
     <Button
         android:id="@+id/btnPeta"
         style="@style/btnStyleOrange"
         android:layout_width="333dp"
         android:layout_height="59dp"
-        android:text="Maps"
-        android:layout_marginRight="60dp"
+        android:layout_above="@+id/btnLihatOrder"
+        android:layout_marginBottom="33dp"
         android:layout_marginLeft="60dp"
 
+
+        android:layout_marginRight="60dp"
+        android:background="@color/colorAccent"
         android:onClick="onClick"
-        android:layout_above="@+id/btnInformasiTempatLaundry"
-        android:layout_marginBottom="33dp" />
+        android:text="Maps" />
+
+
+
 </RelativeLayout>
