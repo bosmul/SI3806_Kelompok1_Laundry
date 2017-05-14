@@ -12,7 +12,6 @@ import com.rpl.kelompok1.gelolaundry.R;
 
 public class MenuLaundryActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnSignOut;
-    private Button btnPeta;
     private Button btnLihatOrder;
     private Button btnPesanKeluhan;
     private TextView update;
@@ -26,7 +25,6 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_menu_laundry);
 
         btnSignOut = (Button) findViewById(R.id.btnSignOut);
-        btnPeta = (Button) findViewById(R.id.btnPeta);
         btnLihatOrder=(Button) findViewById(R.id.btnLihatOrder);
         btnPesanKeluhan = (Button) findViewById(R.id.btnPesanKeluhan);
         update = (TextView) findViewById(R.id.textViewProfile);
@@ -35,11 +33,6 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == btnSignOut) {
             startActivity(new Intent(MenuLaundryActivity.this, LoginActivity.class));
-
-
-        }
-        if (view == btnPeta) {
-            startActivity(new Intent(MenuLaundryActivity.this, MapsActivity.class));
         }
         if (view == btnLihatOrder) {
             startActivity(new Intent(MenuLaundryActivity.this, OrderListActivity.class));
@@ -50,8 +43,5 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
         if (view == update) {
             startActivity(new Intent(MenuLaundryActivity.this, LaundryListActivity.class));
         }
-
-
-
-
-    }}
+    }
+}

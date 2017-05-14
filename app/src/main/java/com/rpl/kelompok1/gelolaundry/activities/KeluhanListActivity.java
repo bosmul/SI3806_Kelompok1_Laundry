@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KeluhanListActivity extends AppCompatActivity {
-    private AppCompatTextView textViewName;
+    private TextView textViewName;
     private ListView listViewKeluhan;
     private List<Keluhan> listKeluhan;
     private KeluhanAdapter mKeluhanAdapter;
@@ -39,19 +40,13 @@ public class KeluhanListActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //clearing the previous artist list
                 listKeluhan.clear();
 
-                //iterating through all the nodes
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
                     Keluhan keluhan = postSnapshot.getValue(Keluhan.class);
-                    //adding artist to the list
                     listKeluhan.add(keluhan);
                 }
-                //creating adapter
                 mKeluhanAdapter = new KeluhanAdapter(KeluhanListActivity.this, listKeluhan);
-                //attaching adapter to the listview
                 listViewKeluhan.setAdapter(mKeluhanAdapter);
             }
 
@@ -67,7 +62,7 @@ public class KeluhanListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keluhan_list);
 
-        textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
+        textViewName = (TextView) findViewById(R.id.textViewName);
         listViewKeluhan = (ListView) findViewById(R.id.listViewKeluhan);
         listKeluhan = new ArrayList<>();
 
@@ -82,7 +77,6 @@ public class KeluhanListActivity extends AppCompatActivity {
         listViewKeluhan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //getting the selected artist
                 Keluhan keluhan = listKeluhan.get(i);
 
                 //creating an intent
@@ -107,13 +101,7 @@ public class KeluhanListActivity extends AppCompatActivity {
                 intent.putExtra("idKeluhan", idKeluhan);
 
                 startActivity(intent);
-                //putting artist name and id to intent
-
-                //starting the activity with intent
-                startActivity(intent);
             }
         });
     }
-
-
 }

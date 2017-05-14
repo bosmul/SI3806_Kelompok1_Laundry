@@ -79,21 +79,5 @@
         android:onClick="onClick"
         android:text="Order" />
 
-    <Button
-        android:id="@+id/btnPeta"
-        style="@style/btnStyleOrange"
-        android:layout_width="333dp"
-        android:layout_height="59dp"
-        android:layout_above="@+id/btnLihatOrder"
-        android:layout_marginBottom="33dp"
-        android:layout_marginLeft="60dp"
-
-
-        android:layout_marginRight="60dp"
-        android:background="@color/colorAccent"
-        android:onClick="onClick"
-        android:text="Maps" />
-
-
 
 </RelativeLayout>

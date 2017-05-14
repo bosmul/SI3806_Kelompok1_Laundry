@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,8 +50,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private TextInputEditText textInputEditTextAlamat;
     private TextInputEditText textInputEditTextTelepon;
 
-    private AppCompatButton appCompatButtonRegister;
-    private AppCompatTextView appCompatTextViewLoginLink;
+    private Button appCompatButtonRegister;
+    private TextView appCompatTextViewLoginLink;
 
     private ProgressDialog progressDialog;
 
@@ -90,7 +92,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String nama =textInputEditTextName.getText().toString();
         String telepon = textInputEditTextTelepon.getText().toString();
         String alamat = textInputEditTextAlamat.getText().toString();
-        // Write new user
         writeNewLaundry(user.getUid(), nama, user.getEmail(), alamat, telepon);
     }
 
@@ -100,12 +101,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
 
-        initViews();
-        initListeners();
-        initObjects();
-    }
-
-    private void initViews() {
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
         textInputLayoutName = (TextInputLayout) findViewById(R.id.textInputLayoutName);
@@ -122,18 +117,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         textInputEditTextAlamat = (TextInputEditText) findViewById(R.id.textInputEditTextAlamat);
         textInputEditTextTelepon = (TextInputEditText) findViewById(R.id.textInputEditTextTelepon);
 
-        appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
+        appCompatButtonRegister = (Button) findViewById(R.id.appCompatButtonRegister);
 
-        appCompatTextViewLoginLink = (AppCompatTextView) findViewById(R.id.appCompatTextViewLoginLink);
-    }
+        appCompatTextViewLoginLink = (TextView) findViewById(R.id.appCompatTextViewLoginLink);
 
-    private void initListeners() {
         appCompatButtonRegister.setOnClickListener(this);
         appCompatTextViewLoginLink.setOnClickListener(this);
         textInputEditTextAlamat.setOnClickListener(this);
-    }
 
-    private void initObjects() {
         inputValidation = new InputValidation(RegisterActivity.this);
         laundry = new Laundry();
         firebaseAuth = FirebaseAuth.getInstance();

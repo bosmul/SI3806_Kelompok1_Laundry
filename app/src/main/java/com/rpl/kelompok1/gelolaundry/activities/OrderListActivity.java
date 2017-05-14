@@ -78,8 +78,8 @@ public class OrderListActivity extends AppCompatActivity {
         query2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                    appleSnapshot.getRef().removeValue();
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    postSnapshot.getRef().removeValue();
                 }
 
             }
