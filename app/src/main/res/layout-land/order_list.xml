@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/latar"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:text="Order Id"
+                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Order Id"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="246dp"
+                android:layout_height="wrap_content"
+                android:text="Nama User"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nama User"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="247dp"
+                android:layout_height="wrap_content"
+                android:text="Alamat User"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Alamat User"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:text="Tipe"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewTipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tipe"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:text="Berat"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewBerat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Berat"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="249dp"
+                android:layout_height="wrap_content"
+                android:text="Harga"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewHarga"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Harga"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textColor="@color/wallet_bright_foreground_holo_dark" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textViewStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
