@@ -17,62 +17,73 @@
         android:text="Lihat KELUHAN"
         android:textSize="30sp"
         android:textColor="@color/white"/>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="20dp"
-            android:text="User"
-            android:id="@+id/textViewUser"
-            android:textSize="20sp"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="20dp"
-            android:text="Pilih Laundry"
-            android:id="@+id/textViewLaundry"
-            android:textSize="20sp"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="20dp"
-            android:text="Keluhan"
-            android:id="@+id/textViewIsiKeluhan"
-            android:textSize="20sp"
-            android:textColor="@color/white"/>
-
-        <EditText
-            android:id="@+id/editTextFeedback"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tulis Feedback"
-            android:textColorHint="@color/white"
-            android:layout_margin="10dp"/>
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnKirim"
-            style="@style/btnStyleOrange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/colorAccent"
-            android:text="Submit" />
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="User:"
+                android:id="@+id/textUser"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="User"
+                android:id="@+id/textViewUser"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Keluhan:"
+                android:id="@+id/textViewKeluhan"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Keluhan"
+                android:id="@+id/textViewIsiKeluhan"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/editTextFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tulis Feedback"
+                android:textColorHint="@color/white"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:id="@+id/btnKirim"
+                style="@style/btnStyleOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@color/colorAccent"
+                android:text="Submit" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

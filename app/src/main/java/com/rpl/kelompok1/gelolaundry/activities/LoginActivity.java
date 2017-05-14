@@ -23,8 +23,6 @@ import com.rpl.kelompok1.gelolaundry.helpers.InputValidation;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener  {
     private final AppCompatActivity activity = LoginActivity.this;
 
-    private NestedScrollView nestedScrollView;
-
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
 
@@ -46,8 +44,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-
-        nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
         textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
@@ -80,11 +76,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.appCompatButtonLogin:
-//                verifyFromSQLite();
                 userLogin();
                 break;
             case R.id.textViewLinkRegister:
-                // Navigate to RegisterActivity
                 Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intentRegister);
                 break;
@@ -95,7 +89,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = textInputEditTextEmail.getText().toString().trim();
         String password  = textInputEditTextPassword.getText().toString().trim();
 
-        //checking if email and passwords are empty
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
@@ -106,20 +99,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        //if the email and password are not empty
-        //displaying a progress dialog
         progressDialog.setMessage("Logging in, Please Wait...");
         progressDialog.show();
 
-        //logging in the user
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-                        //if the task is successfull
                         if(task.isSuccessful()){
-                            //start the profile activity
                             emptyInputEditText();
                             finish();
                             startActivity(new Intent(getApplicationContext(), MenuLaundryActivity.class));

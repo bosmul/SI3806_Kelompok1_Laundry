@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,14 +30,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LaundryListActivity extends AppCompatActivity {
-    private AppCompatActivity activity = LaundryListActivity.this;
-    private AppCompatTextView textViewName;
     private ListView listViewLaundry;
     private List<Laundry> listLaundry;
     private LaundryAdapter mLaundryAdapter;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
     String nama, alamat, telepon;
+    String newAlamat = "Enter Alamat";
 
     FirebaseUser user;
     Query query;
@@ -49,27 +48,18 @@ public class LaundryListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //clearing the previous artist list
                 listLaundry.clear();
 
-                //iterating through all the nodes
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
                     Laundry laundry = postSnapshot.getValue(Laundry.class);
-                    //adding artist to the list
                     listLaundry.add(laundry);
 
                     nama = laundry.getName();
                     alamat = laundry.getAlamat();
                     telepon = laundry.getTelepon();
-
-
-
-
                 }
-                //creating adapter
+
                 mLaundryAdapter = new LaundryAdapter(LaundryListActivity.this, listLaundry);
-                //attaching adapter to the listview
                 listViewLaundry.setAdapter(mLaundryAdapter);
             }
 
@@ -80,32 +70,22 @@ public class LaundryListActivity extends AppCompatActivity {
         });
     }
 
-    private void initViews() {
-        textViewName = (AppCompatTextView) findViewById(R.id.textViewName);
-        listViewLaundry = (ListView) findViewById(R.id.listViewLaundry);
-    }
-
-    private void initObjects() {
-        listLaundry = new ArrayList<>();
-
-        String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        textViewName.setText(emailFromIntent);
-    }
-
-
-
-    @Override
+  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laundry_list);
         getSupportActionBar().hide();
 
-        initViews();
-        initObjects();
-        mDatabase = FirebaseDatabase.getInstance().getReference("laundry");
+        listViewLaundry = (ListView) findViewById(R.id.listViewLaundry);
+        listLaundry = new ArrayList<>();
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("laundry");
         query = mDatabase.orderByChild("id").equalTo(user.getUid());
+
+
 
         listViewLaundry.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -117,15 +97,26 @@ public class LaundryListActivity extends AppCompatActivity {
         });
     }
 
+
+
     private boolean updateLaundry(String id, String name, String email, String alamat, String telepon) {
-        //getting the specified artist reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("laundry").child(id);
 
-        //updating artist
         Laundry laundry= new Laundry(id, name, email, alamat, telepon);
         dR.setValue(laundry);
         Toast.makeText(getApplicationContext(), "Profile Updated", Toast.LENGTH_LONG).show();
         return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                newAlamat=data.getStringExtra("alamat");
+
+            }
+        }
     }
 
     private void showUpdateDialog(final String id, final String email) {
@@ -137,9 +128,16 @@ public class LaundryListActivity extends AppCompatActivity {
 
         final EditText editTextNama = (EditText) dialogView.findViewById(R.id.editTextNama);
         final EditText editTextTelepon = (EditText) dialogView.findViewById(R.id.editTextTelepon);
-        final EditText editTextAlamat = (EditText) dialogView.findViewById(R.id.editTextAlamat);
+        final TextView textViewAlamat = (TextView) dialogView.findViewById(R.id.textViewAlamat);
 
-        editTextAlamat.setText(alamat);
+        textViewAlamat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(LaundryListActivity.this, MapsActivity.class), 1);
+            }
+        });
+
+        textViewAlamat.setHint(newAlamat);
         editTextNama.setText(nama);
         editTextTelepon.setText(telepon);
 
@@ -154,9 +152,11 @@ public class LaundryListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String nama = editTextNama.getText().toString().trim();
                 String telepon = editTextTelepon.getText().toString().trim();
-                String alamat = editTextAlamat.getText().toString().trim();
+/*
+                String alamat = textViewAlamat.getText().toString().trim();
+*/
                 if (!TextUtils.isEmpty(nama)) {
-                    updateLaundry(id, nama, email, alamat, telepon);
+                    updateLaundry(id, nama, email, newAlamat, telepon);
                     b.dismiss();
                 }
             }

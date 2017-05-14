@@ -35,8 +35,6 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == btnSignOut) {
             startActivity(new Intent(MenuLaundryActivity.this, LoginActivity.class));
-
-
         }
         if (view == btnPeta) {
             startActivity(new Intent(MenuLaundryActivity.this, MapsActivity.class));
@@ -50,8 +48,5 @@ public class MenuLaundryActivity extends AppCompatActivity implements View.OnCli
         if (view == update) {
             startActivity(new Intent(MenuLaundryActivity.this, LaundryListActivity.class));
         }
-
-
-
-
-    }}
+    }
+}

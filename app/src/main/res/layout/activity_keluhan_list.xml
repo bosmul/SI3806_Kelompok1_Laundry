@@ -7,39 +7,33 @@
     android:orientation="vertical"
     tools:context="com.rpl.kelompok1.gelolaundry.activities.KeluhanListActivity">
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/latar"
         android:gravity="center"
         android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DAFTAR KELUHAN"
             android:textSize="20sp" />
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/text_hello" />
-
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-    </android.support.v7.widget.LinearLayoutCompat>
+    </LinearLayout>
 
-    <android.support.v7.widget.AppCompatTextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
         android:paddingLeft="16dp"
         android:paddingTop="5dp"
-        android:text="@string/text_accounts"
+        android:text="Semua Keluhan"
         android:textColor="@android:color/black" />
 
     <ListView

@@ -149,12 +149,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        Intent setalamat = new Intent(MapsActivity.this, RegisterActivity.class);
+        Intent setalamat = new Intent();
+
         setalamat.putExtra("alamat", alamat);
+
         setResult(RESULT_OK, setalamat);
+
         finish();
-        Toast.makeText(this, "Info window clicked",
-                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -202,7 +203,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         sb.append(address.getAddressLine(i) + ", ");
                     }
                     alamat = sb.toString();
-                    Toast.makeText(MapsActivity.this, latLng.toString(), Toast.LENGTH_LONG).show();
                     mAddress.setText(sb.toString());
                 }
 

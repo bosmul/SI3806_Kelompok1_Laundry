@@ -16,7 +16,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.rpl.kelompok1.gelolaundry.R;
 import com.rpl.kelompok1.gelolaundry.models.Keluhan;
-import com.rpl.kelompok1.gelolaundry.models.Order;
 import com.rpl.kelompok1.gelolaundry.models.User;
 
 import java.util.ArrayList;
@@ -44,14 +43,14 @@ public class LihatKeluhanActivity extends AppCompatActivity implements View.OnCl
         feedbackET = (EditText) findViewById(R.id.editTextFeedback);
 
         userTV = (TextView) findViewById(R.id.textViewUser);
-        laundry = (TextView) findViewById(R.id.textViewLaundry);
         isiKeluhan = (TextView) findViewById(R.id.textViewIsiKeluhan);
         kirim = (Button) findViewById(R.id.btnKirim);
         kirim.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference("keluhan");
         user = firebaseAuth.getCurrentUser();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("keluhan");
 
         listKeluhan = new ArrayList<>();
         listUser = new ArrayList<>();
@@ -66,7 +65,6 @@ public class LihatKeluhanActivity extends AppCompatActivity implements View.OnCl
         isi = getIntent().getStringExtra("isi");
 
         userTV.setText(namaUser);
-        laundry.setText(namaLaundry);
         isiKeluhan.setText(isi);
     }
 
@@ -81,15 +79,14 @@ public class LihatKeluhanActivity extends AppCompatActivity implements View.OnCl
     }
 
     private boolean updateKeluhan() {
-        //getting the specified artist reference
-        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("keluhan").child(idKeluhan);
+        DatabaseReference dR = mDatabase.child(idKeluhan);
         feedback = feedbackET.getText().toString().trim();
 
-        //updating artist
         Keluhan keluhan = new Keluhan(idKeluhan, idUser, idLaundry, namaUser, namaLaundry,
                 nomorUser, nomorLaundry, isi, feedback);
+
         dR.setValue(keluhan);
-        Toast.makeText(getApplicationContext(), "Keluhan Updated", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Feedback terkirim", Toast.LENGTH_LONG).show();
         return true;
     }
 }
