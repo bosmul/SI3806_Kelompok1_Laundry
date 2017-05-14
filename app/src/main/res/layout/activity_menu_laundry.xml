@@ -40,44 +40,45 @@
         style="@style/btnStyleOrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnPesanKeluhan"
-        android:layout_alignStart="@+id/btnPesanKeluhan"
-        android:layout_marginBottom="42dp"
 
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:background="@color/colorAccent"
         android:onClick="onClick"
-        android:text="Sign Out" />
+        android:text="Sign Out"
+        android:layout_below="@+id/btnPesanKeluhan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
 
     <Button
         android:id="@+id/btnPesanKeluhan"
         style="@style/btnStyleOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp"
         android:layout_marginLeft="100dp"
 
         android:layout_marginRight="100dp"
         android:background="@color/colorAccent"
         android:onClick="onClick"
-        android:text="Lihat Keluhan" />
+        android:text="Lihat Keluhan"
+        android:layout_below="@+id/btnLihatOrder"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
 
     <Button
         android:id="@+id/btnLihatOrder"
         style="@style/btnStyleOrange"
         android:layout_width="333dp"
         android:layout_height="59dp"
-        android:layout_above="@+id/btnSignOut"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
 
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:background="@color/colorAccent"
         android:onClick="onClick"
-        android:text="Order" />
+        android:text="Order"
+        android:layout_below="@+id/textViewProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
 
 
 </RelativeLayout>
